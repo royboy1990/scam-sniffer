@@ -53,7 +53,7 @@ All scam detection is handled locally inside your browser.
 ## 📜 License
 
 This project is open source under the MIT license.  
-For commercial use, please contact [youremail@example.com].
+For commercial use, please contact [levyroy1990@gmail.com].
 
 ---
 

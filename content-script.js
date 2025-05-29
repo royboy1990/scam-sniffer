@@ -49,7 +49,20 @@ const SCAM_PATTERNS = {
     'your account will be closed',
     'earn from home',
     'exclusive offer just for you',
-    'limited time airdrop'
+    'limited time airdrop',
+    'check this video',
+    'is this you in the video',
+    'found this photo of you',
+    'you appeared in this video',
+    'you won a prize',
+    'click here to win',
+    'we are giving away',
+    'urgent action required',
+    'verify before account closure',
+    'free gift just for you',
+    'click to receive',
+    'claim before it expires',
+    'respond now to confirm'
   ],
   redFlags: [
     'wallet integration',
@@ -80,7 +93,18 @@ const SCAM_PATTERNS = {
     'payment via crypto or gift cards',
     'no video call possible',
     'click here to claim',
-    'payment upfront required'
+    'payment upfront required',
+    'claim your prize now',
+    'verify or lose access',
+    'unusual activity on your account',
+    'your account will be disabled',
+    'we have restricted your access',
+    'you’ve won a facebook lottery',
+    'share this to claim your reward',
+    'requires verification via external link',
+    'conversation must move to telegram',
+    'asking for login details',
+    'requesting bank transfer to unknown account'
   ]
 };
 
@@ -276,7 +300,7 @@ function addWarningBadge(element) {
         .scamsniff-facebook-close-btn {
           position: absolute;
           top: 4px;
-          right: 8px;
+          right: 14px;
           background: transparent;
           border: none;
           color: #856404;
@@ -389,12 +413,12 @@ function monitorMessages() {
 // Initialize when the page is fully loaded
 if (document.readyState === 'complete') {
   const config = getPlatformConfig();
-  console.log(`ScamSniff: Content script loaded and monitoring messages on ${config.name}`);
+  // console.log(`ScamSniff: Content script loaded and monitoring messages on ${config.name}`);
   monitorMessages();
 } else {
   window.addEventListener('load', () => {
     const config = getPlatformConfig();
-    console.log(`ScamSniff: Content script loaded and monitoring messages on ${config.name}`);
+    // console.log(`ScamSniff: Content script loaded and monitoring messages on ${config.name}`);
     monitorMessages();
   });
 } 

@@ -24,7 +24,7 @@ ScamSniff scans messages you receive on popular platforms and highlights scam co
 
 ## 💬 Suggest Features or Vote on the Roadmap
 
-👉 [View Roadmap & Vote](https://github.com/royboy1990/scam-sniffer/issues)
+👉 [View Roadmap & Vote](https://github.com/royboy1990/scam-sniffer/issues/6)
 
 ---
 

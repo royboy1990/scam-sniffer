@@ -11,7 +11,8 @@
     {
       "matches": [
         "*://*.linkedin.com/*",
-        "*://*.fiverr.com/*"
+        "*://*.fiverr.com/*",
+         "*://*.facebook.com/*"
       ],
       "js": ["content-script.js"]
     }

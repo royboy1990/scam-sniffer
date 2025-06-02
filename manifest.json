@@ -3,7 +3,7 @@
   "name": "ScamSniff – Smart Scam Message Detector",
   "version": "1.0.0",
   "description": "Detect potential scam messages on Facebook, LinkedIn, and Fiverr",
-  "permissions": ["activeTab"],
+  "permissions": [],
   "action": {
     "default_popup": "popup.html"
   },

@@ -16,40 +16,29 @@ const SCAM_PATTERNS = {
     'free', 'winner', 'congratulations', 'urgent', 'guaranteed',
     'earn money', 'get rich', 'paypal', 'telegram', 'whatsapp',
     'login', 'verify', '2fa', 'prize', 'bonus', 'claim', 'exclusive', 'double your money',
-    'exchange', 'lottery', 'run script'
+    'exchange', 'lottery', 'run script',
+    // Added keywords
+    'escrow', 'wire transfer', 'western union', 'moneygram', 'prepaid card', 'prepaid visa', 'prepaid mastercard',
+    'gift voucher', 'amazon card', 'google play card', 'apple card', 'itunes card',
+    'verification code', 'sms code', 'security code', 'unlock account', 'reactivate account', 'urgent payment',
+    'overdue invoice', 'invoice attached', 'payment link', 'click link below', 'confirm payment', 'update your info',
+    'update your information', 'reset password', 'suspicious login', 'unauthorized access', 'account compromised',
+    'security alert', 'action required', 'verify now', 'confirm now', 'act now', 'limited offer', 'exclusive deal',
+    'investment opportunity', 'double your investment', 'guaranteed returns', 'forex', 'binary options',
+    'crypto mining', 'staking', 'airdrop', 'whitelist', 'presale', 'token sale', 'whitelist spot', 'whitelist your wallet',
+    'refund', 'package', 'delivery', 'subscription', 'renewal', 'credit card', 'pre-approved', 'IRS', 'tax', 'government', 'urgent help', 'boss', 'CEO',
   ],
   suspiciousPhrases: [
     'verify manually',
-    'technical assessment',
     'run this for verification',
-    'remote job opportunity',
-    'high hourly rate',
-    'we are hiring',
     'screen share your desktop',
     'connect your wallet',
     'confirm identity by running',
     'install dependencies to proceed',
-    'log in to see details',
-    'special reward for you',
     'claim your reward',
-    'exclusive offer',
-    'i hope this message finds you well',
-    'dear sir/madam',
-    'i saw your profile',
-    "you're perfect for this job",
-    'kindly contact our manager on telegram',
-    'please respond me',
-    'reply me kindly',
-    'urgent message follows',
-    'trust me this is not a scam',
-    "i can't video call right now",
-    "i've never felt this way before",
-    "my bank account's frozen",
-    'verify your account now',
-    'your account will be closed',
-    'earn from home',
-    'exclusive offer just for you',
-    'limited time airdrop',
+    'install this script from github',
+    'install script from github',
+    'run script from github',
     'check this video',
     'is this you in the video',
     'found this photo of you',
@@ -62,12 +51,108 @@ const SCAM_PATTERNS = {
     'free gift just for you',
     'click to receive',
     'claim before it expires',
-    'respond now to confirm',
-    'is this you', 
-    'check this video', 
-    'is this you in this pic', 
-    'this video of you', 
-    'saw this video of you'
+    'is this you',
+    'is this you in this pic',
+    'this video of you',
+    'saw this video of you',
+    'verify your account now',
+    'your account will be closed',
+    'limited time airdrop',
+    'steam gift',
+    'bank account is frozen',
+    'bank account frozen',
+    'my bank account is frozen',
+    'send me a steam gift',
+    'can you send me a steam gift',
+    // Added suspicious phrases
+    'you have been selected',
+    'you are eligible for',
+    'congratulations, you have won',
+    'your account has been flagged',
+    'your account is at risk',
+    'we noticed unusual activity',
+    'please update your billing information',
+    'please update your payment method',
+    'your payment was declined',
+    'your payment could not be processed',
+    'please confirm your payment',
+    'please confirm your account',
+    'reset your password now',
+    'reset your password immediately',
+    'your password has expired',
+    'your password will expire',
+    'click the link below',
+    'click the link to verify',
+    'click the link to claim',
+    'investment opportunity',
+    'guaranteed returns',
+    'double your investment',
+    'limited time offer',
+    'exclusive deal just for you',
+    'act now to secure your spot',
+    'urgent payment required',
+    'overdue invoice attached',
+    'invoice attached',
+    'verify your identity',
+    'verify your billing information',
+    'verify your payment method',
+    'update your information',
+    'update your account information',
+    'update your payment details',
+    'update your billing details',
+    'security alert',
+    'unauthorized access detected',
+    'suspicious login attempt',
+    'your account has been compromised',
+    'your account has been locked',
+    'your account has been disabled',
+    'your account has been suspended',
+    'your account has been restricted',
+    'your account has been limited',
+    'unlock your account',
+    'reactivate your account',
+    'reactivate your access',
+    'confirm your payment',
+    'confirm your account',
+    'confirm your identity',
+    'confirm your billing information',
+    'confirm your payment method',
+    'confirm your details',
+    'confirm your information',
+    'confirm your password',
+    'confirm your email',
+    'confirm your phone number',
+    'sms code',
+    'verification code',
+    'security code',
+    'prepaid code',
+    'gift voucher',
+    'prepaid card',
+    'prepaid visa',
+    'prepaid mastercard',
+    'amazon card',
+    'google play card',
+    'apple card',
+    'itunes card',
+    "you've won!",
+    'winning an unexpected prize',
+    'the irs is trying to contact you',
+    'you have a refund coming',
+    'verify your bank account',
+    'you have a package delivery',
+    'your boss needs help',
+    'fake subscription renewal',
+    'low-interest credit card offers',
+    'your subscription is expiring',
+    'renew your subscription',
+    'payment failed',
+    'your package is waiting',
+    'track your shipment',
+    'delivery failed',
+    'your boss needs you to buy gift cards',
+    'your ceo needs you to send money',
+    'pre-approved credit card',
+    'apply now for a low interest credit card',
   ],
   redFlags: [
     'wallet integration',
@@ -122,13 +207,13 @@ const PLATFORM_CONFIGS = [
     bubbleSelector: '.msg-s-event-listitem__body',
     highlightClass: 'scamsniff-bubble-highlight-linkedin'
   },
-  {
-    name: 'Fiverr',
-    match: () => window.location.hostname.includes('fiverr.com'),
-    messageSelector: 'p.qem7ddk',
-    bubbleSelector: 'p.qem7ddk',
-    highlightClass: 'scamsniff-bubble-highlight-fiverr'
-  },
+  // {
+  //   name: 'Fiverr',
+  //   match: () => window.location.hostname.includes('fiverr.com'),
+  //   messageSelector: 'p.qem7ddk',
+  //   bubbleSelector: 'p.qem7ddk',
+  //   highlightClass: 'scamsniff-bubble-highlight-fiverr'
+  // },
   {
     name: 'Facebook',
     match: () => window.location.hostname.includes('facebook.com'),
@@ -270,6 +355,7 @@ const LOW_TRUST_INDICATORS = {
     /\n{3,}/   // Multiple line breaks
   ],
   coldPitchPhrases: [
+    'i hope you are well',  
     'i would like to introduce',
     'i am reaching out',
     'i hope this message finds you well',
@@ -279,7 +365,9 @@ const LOW_TRUST_INDICATORS = {
     'for your convenience',
     'attached you will find',
     'kindly review',
-    'please find attached'
+    'please find attached',
+    'i noticed your company is',
+    'i saw your recent article on',
   ]
 };
 
@@ -374,6 +462,33 @@ function isPhishingDomain(domain) {
   return false;
 }
 
+// Helper: check if all words in a phrase are present in the message
+function allWordsPresent(message, phrase) {
+  const messageWords = normalizeText(message).split(' ');
+  const phraseWords = normalizeText(phrase).split(' ');
+  return phraseWords.every(word => messageWords.includes(word));
+}
+
+// Keyword groups for high-risk scam actions
+const SCAM_KEYWORD_GROUPS = [
+  ["install", "script"],
+  ["install", "github"],
+  ["run", "script"],
+  ["download", "exe"],
+  ["send", "steam", "gift"],
+  ["bank", "account", "frozen"],
+  ["bank", "account", "is", "frozen"],
+  ["bank", "account", "my", "frozen"],
+  ["hiring", "crypto"],
+  ["remote", "crypto"],
+  // Add more as needed
+];
+
+function groupKeywordsPresent(message, group) {
+  const msg = normalizeText(message);
+  return group.every(word => msg.includes(word));
+}
+
 // Function to check if a message contains scam indicators
 function detectScam(message) {
   try {
@@ -398,7 +513,7 @@ function detectScam(message) {
     let score = 0;
     let detectedPatterns = [];
 
-    // First check for low trust indicators
+    // First check for low trust indicators (do NOT escalate to scam)
     const lowTrustResult = checkLowTrust(message);
     console.log('ScamSniff: Low trust check result:', {
       isLowTrust: lowTrustResult.isLowTrust,
@@ -415,6 +530,7 @@ function detectScam(message) {
       };
     }
 
+    // Only escalate to scam if scam patterns are matched
     // Check critical patterns first
     CRITICAL_PATTERNS.forEach(pattern => {
       if (pattern.test(message)) {
@@ -430,21 +546,29 @@ function detectScam(message) {
       detectedPatterns.push(`Contains suspicious keyword: "${pattern}" (matched with "${word}")`);
     });
 
-    // Check for suspicious phrases with fuzzy matching
+    // Check for suspicious phrases with fuzzy matching and all-words-present
     SCAM_PATTERNS.suspiciousPhrases.forEach(phrase => {
       const normPhrase = normalizeText(phrase);
-      if (isSimilar(lowerMessage, normPhrase, 0.65)) {
+      if (isSimilar(lowerMessage, normPhrase, 0.4) || allWordsPresent(message, phrase)) {
         score += 2;
         detectedPatterns.push(`Contains suspicious phrase: "${phrase}"`);
       }
     });
 
-    // Check for red flags with fuzzy matching
+    // Check for red flags with fuzzy matching and all-words-present
     SCAM_PATTERNS.redFlags.forEach(flag => {
       const normFlag = normalizeText(flag);
-      if (isSimilar(lowerMessage, normFlag, 0.65)) {
+      if (isSimilar(lowerMessage, normFlag, 0.4) || allWordsPresent(message, flag)) {
         score += 3;
         detectedPatterns.push(`Contains major red flag: "${flag}"`);
+      }
+    });
+
+    // Check for risky keyword groups
+    SCAM_KEYWORD_GROUPS.forEach(group => {
+      if (groupKeywordsPresent(message, group)) {
+        score += 3;
+        detectedPatterns.push(`Contains risky keyword group: ${group.join(', ')}`);
       }
     });
 
@@ -706,6 +830,13 @@ function addWarningBadge(element) {
         }
         .scamsniff-bubble-high-scam {
           background: #f8d7da !important;
+        }
+        /* Facebook only: force column direction for scam bubbles in Messenger */
+        div[aria-label^="Messages in conversation with"] [role="gridcell"] .scamsniff-bubble-high-scam,
+        div[aria-label^="Messages in conversation with"] [role="gridcell"] .scamsniff-bubble-scam,
+        div[aria-label^="Messages in conversation with"] [role="gridcell"] .scamsniff-bubble-low-trust {
+          display: flex !important;
+          flex-direction: column !important;
         }
       `;
       document.head.appendChild(style);

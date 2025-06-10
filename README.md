@@ -32,8 +32,7 @@ ScamSniff scans messages you receive on popular platforms and highlights scam co
 
 - Facebook Messenger  
 - LinkedIn  
-- Fiverr  
-- *(Coming soon: Discord, WhatsApp, Telegram)*
+- *(Coming soon: Discord, WhatsApp, Telegram, Fiverr)*
 
 ---
 

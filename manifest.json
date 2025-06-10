@@ -3,7 +3,6 @@
   "name": "ScamSniff – Smart Scam Message Detector",
   "version": "1.0.0",
   "description": "Detect potential scam messages on Facebook and LinkedIn",
-  "permissions": ["activeTab"],
   "action": {
     "default_popup": "popup.html"
   },

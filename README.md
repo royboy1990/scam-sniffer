@@ -45,7 +45,7 @@ All scam detection is handled locally inside your browser.
 
 ## 📦 Install from Chrome Web Store
 
-> [ScamSniff – Chrome Extension](https://chrome.google.com/webstore/detail/YOUR-LINK-HERE)
+> [ScamSniff – Chrome Extension](https://chromewebstore.google.com/detail/scamsniff-%E2%80%93-smart-scam-me/bibhhpbnlbeeiahjigdahkgdgeidmkah?authuser=0&hl=en)
 
 ---
 
